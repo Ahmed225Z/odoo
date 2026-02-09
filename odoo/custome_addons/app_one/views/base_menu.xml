@@ -1,0 +1,9 @@
+<odoo>
+    <menuitem 
+     id="real_state_root_menu"
+     name="Real Estate"/>
+     <menuitem 
+     id="Properties_menu"
+     name="Properties"
+     parent="real_state_root_menu"/>
+</odoo>
