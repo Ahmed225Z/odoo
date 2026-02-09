@@ -3,20 +3,23 @@
     <field name="name">property tree</field>
     <field name="model">property</field>
     <field name="arch" type="xml">
-        <tree>
+        <list>
             <field name="name"/>
             <field name="date_availability"/>
             <field name="selling_price"/>
             <field name="garden"/>
+            <field name="garden_area"/>
+            <field name="bedrooms" optional="1"/>
       
-        </tree>
+      
+        </list>
     </field>
 </record>
 <record id="property_action" model="ir.actions.act_window">
     <field name="name">property action</field>
     <field name="res_model">property</field>
 </record>
-<menuitem id="Properties_menu" 
+<menuitem id="Properties_menu_item" 
           name="Properties" 
           parent="Properties_menu"
           action="property_action"/>
