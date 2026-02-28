@@ -57,11 +57,13 @@
         <group string="Owner Information">
 
             <field name="phone"/>
-
+            <field name="property_ids" widget="many2many_tags"/>
 
             <field name="address"/>
 
             <field name="phone"/>
+            
+            
             
     
 
