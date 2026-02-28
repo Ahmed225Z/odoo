@@ -12,8 +12,6 @@
 
             <field name="name"/>
 
-            <field name="owner_id"/>
-
             <field name="date_availability"/>
 
             <field name="selling_price"/>

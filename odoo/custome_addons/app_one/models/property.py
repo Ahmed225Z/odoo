@@ -38,10 +38,6 @@ class Property(models.Model):
 
 
 
-    owner_id = fields.Many2one('owner', string='Owner')
-
-
-
     
 
    

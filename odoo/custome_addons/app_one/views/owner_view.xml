@@ -12,7 +12,7 @@
 
             <field name="name"/>
             <field name="phone"/>
-            <field name="email"/>
+           
             <field name="address"/>
             
 
@@ -58,7 +58,6 @@
 
             <field name="phone"/>
 
-            <field name="email"/>
 
             <field name="address"/>
 
@@ -68,17 +67,7 @@
 
         </group>
 
-        <group string="Other Information">
-
-            <field name="phone"/>
-
-            <field name="email"/>
-
-            <field name="address"/>
-
-            <field name="phone"/>
-
-        </group>
+    
 
         </group>
 
