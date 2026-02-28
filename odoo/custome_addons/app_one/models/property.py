@@ -38,6 +38,10 @@ class Property(models.Model):
 
 
 
+    owner_id = fields.Many2one('owner', string='Owner')
+
+
+
     
 
    
@@ -124,12 +128,9 @@ class Property(models.Model):
 
 
 
-    _name_uniq = models.Constraint(
-
-        'unique (name)',
-
-        'Tag name already exists!',
-
+    _name_category_uniq = models.Constraint(
+        'unique (name, description)',
+        'Tag name already exists in this category!',
     )
 
 
@@ -152,19 +153,25 @@ class Property(models.Model):
 
                 raise ValidationError("Bedrooms cannot be zero.")
 
-    @api.model_create_multi
-    def create(self, vals_list):
-       res= super(Property, self).create(vals_list)
-       print("Property created:", res)
-       return res            
-    @api.model
-    def _search(self, domain, offset=0, limit=None, order=None, **kwargs):
-        result = super()._search(
-            domain,
-            offset=offset,
-            limit=limit,
-            order=order,
-            **kwargs
-        )
-        print("Property searched:", self)
-        return result
+    # @api.model_create_multi
+    # def create(self, vals_list):
+    #    res= super(Property, self).create(vals_list)
+    #    print("Property created:", res)
+    #    return res            
+    # @api.model
+    # def _search(self, domain, offset=0, limit=None, order=None, **kwargs):
+    #     result = super()._search(
+    #         domain,
+    #         offset=offset,
+    #         limit=limit,
+    #         order=order,
+    #         **kwargs
+    #     )
+    #     print("Property searched:", self)
+    #     return result
+    # def write(self, vals):
+    #     print("Property written:", self)
+    #     return super().write(vals)
+    # def unlink(self):
+    #     print("deleted method called", self)
+    #     return super().unlink()

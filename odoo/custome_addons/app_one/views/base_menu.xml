@@ -6,4 +6,8 @@
      id="Properties_menu"
      name="Properties"
      parent="real_state_root_menu"/>
+     <menuitem 
+     id="configuration_menu"
+     name="configuration"
+     parent="real_state_root_menu"/>
 </odoo>

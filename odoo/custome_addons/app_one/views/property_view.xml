@@ -8,16 +8,17 @@
 
     <field name="arch" type="xml">
 
-        <list>
+        <list multi_edit="1" create="1" edit="1" delete="0">
 
             <field name="name"/>
+
+            <field name="owner_id"/>
 
             <field name="date_availability"/>
 
             <field name="selling_price"/>
 
             <field name="garden"/>
-
             <field name="garden_area"/>
             <field name="postcode"/>
 
@@ -41,7 +42,7 @@
 
     <field name="arch" type="xml">
 
-        <form>
+        <form create="1" edit="1" delete="1">
 
         <sheet>
 
