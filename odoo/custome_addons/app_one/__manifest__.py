@@ -19,7 +19,11 @@
     'depends': ['base'],
 
     'data': ['views/base_menu.xml','security/ir.model.access.csv','views/property_view.xml','views/owner_view.xml','views/tag_view.xml'],
-
+    'assets': {
+    'web.assets_backend': [
+        'app_one/static/src/css/property.css',
+    ],
+    },
     'installable': True,
 
     'application': True,

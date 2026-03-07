@@ -55,7 +55,7 @@ class Property(models.Model):
 
 
     selling_price = fields.Float(digits=(0, 5))
-
+    diff = fields.Float(compute='_compute_diff',store=True)
 
 
     bedrooms = fields.Integer()
@@ -108,16 +108,10 @@ class Property(models.Model):
 
     owner_id = fields.Many2one('owner')
     tag_ids = fields.Many2many('tag')
+    state = fields.Selection([('draft', 'Draft'), ('pending', 'Pending'),('sold', 'Sold')], default='draft')
 
 
-
-    # SQL Constraint - الاسم الصحيح هو _sql_constraints (بـ t وليس n)
-
-    # _sql_constraints = [ 
-
-    #     ('unique_postcode', 'unique (postcode)', 'Postcode must be unique')
-
-    # ]
+  
 
    
 
@@ -126,8 +120,8 @@ class Property(models.Model):
 
 
     _name_category_uniq = models.Constraint(
-        'unique (name, description)',
-        'Tag name already exists in this category!',
+        'unique (name)',
+     
     )
 
 
@@ -172,3 +166,19 @@ class Property(models.Model):
     # def unlink(self):
     #     print("deleted method called", self)
     #     return super().unlink()
+    def action_draft(self):
+        for record in self:
+            record.state = 'draft'
+    def action_pending(self):
+        for record in self:
+            record.state = 'pending'
+    def action_sold(self):
+        for record in self:
+            record.state = 'sold'
+    def sold_to_draft(self):
+        for record in self:
+            record.state = 'draft' 
+                   
+    def _compute_diff(self):               
+        for record in self:
+            record.diff = record.expected_price - record.selling_price
