@@ -7,4 +7,6 @@ class Owner(models.Model):
     address = fields.Char(required=True)
     property_ids = fields.One2many('property', 'owner_id')
     
-    
+    _sql_constraints = [
+        ('unique_name', 'unique("name")', 'Owner name must be unique.'),
+    ]

@@ -16,7 +16,7 @@
 
     'author': 'Your Name',
 
-    'depends': ['base','sale_management','account'],
+    'depends': ['base','sale_management','account','mail'],
 
     'data': [
         'views/base_menu.xml',

@@ -16,7 +16,7 @@ class Property(models.Model):
 
     _name = 'property'
 
-
+    _inherit = ['mail.thread','mail.activity.mixin']
 
     _description = 'Property'
 
@@ -111,15 +111,19 @@ class Property(models.Model):
     state = fields.Selection([('draft', 'Draft'), ('pending', 'Pending'),('sold', 'Sold')], default='draft')
 
 
-  
+    owner_address = fields.Char(related='owner_id.address', string='Owner Address', readonly=False, store=True)
+    owner_phone = fields.Char(related='owner_id.phone', string='Owner Phone', readonly=False, store=True)
+    
 
    
 
    
+    # _sql_constraints = [
+    #     ('unique_name', 'unique(name)', 'Property name must be unique.'),
+    # ]
 
 
-
-    _name_category_uniq = models.Constraint(
+    _name_unique = models.Constraint(
         'unique (name)',
      
     )
